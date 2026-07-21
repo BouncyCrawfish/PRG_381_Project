@@ -81,7 +81,6 @@ public class Login_Page extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         Login_Username_Field = new javax.swing.JTextField();
-        javax.swing.JPasswordField Login_Password_Field1 = new javax.swing.JPasswordField();
         Registration_Tab = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextPane3 = new javax.swing.JTextPane();
@@ -148,7 +147,8 @@ public class Login_Page extends javax.swing.JFrame {
         Login_Tab.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 100, 190, 20));
 
         Login_Password_Field.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
-        Login_Tab.add(Login_Password_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 250, 220, 50));
+        Login_Password_Field.addActionListener(this::Login_Password_FieldActionPerformed);
+        Login_Tab.add(Login_Password_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 220, 50));
 
         jLabel2.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -170,9 +170,6 @@ public class Login_Page extends javax.swing.JFrame {
 
         Login_Username_Field.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         Login_Tab.add(Login_Username_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 130, 220, 50));
-
-        Login_Password_Field1.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
-        Login_Tab.add(Login_Password_Field1, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 250, 220, 50));
 
         Tab_Index.addTab("Login", Login_Tab);
         Login_Tab.getAccessibleContext().setAccessibleName("Login_Tab");
@@ -463,6 +460,7 @@ public class Login_Page extends javax.swing.JFrame {
     
     private void Btn_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogoutActionPerformed
         System.exit(0);
+                
     }//GEN-LAST:event_Btn_LogoutActionPerformed
 
     private void Btn_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LoginActionPerformed
@@ -483,6 +481,10 @@ public class Login_Page extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_Btn_LoginActionPerformed
+
+    private void Login_Password_FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_Password_FieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Login_Password_FieldActionPerformed
 
 
     public static void main(String args[]) {

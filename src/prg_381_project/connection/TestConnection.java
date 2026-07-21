@@ -1,12 +1,17 @@
 package prg_381_project.connection;
 
+import java.sql.Connection;
+
 public class TestConnection {
+
     public static void main(String[] args) {
-        var conn = DBConnection.getConnection();
-        if (conn != null) {
-            System.out.println("✅ Connected successfully!");
+
+        Connection con = DBConnection.getConnection();
+
+        if (con != null) {
+            System.out.println("Connected successfully!");
         } else {
-            System.out.println("❌ Connection failed — check DBConnection.java credentials.");
+            System.out.println("Connection failed!");
         }
     }
 }
