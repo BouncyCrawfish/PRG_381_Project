@@ -17,7 +17,7 @@ public class Cleaner {
         this.department = department;
     }
 
-    public int getCleanerId() {
+    public int getCleanerId(int parseInt) {
         return cleanerId;
     }
 
