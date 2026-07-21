@@ -7,7 +7,7 @@ public interface UserDAO {
 
     boolean addUser(User user);
 
-    User getUserById(int userId);
+    User getUserByUsername(String username);
 
     List<User> getAllUsers();
 

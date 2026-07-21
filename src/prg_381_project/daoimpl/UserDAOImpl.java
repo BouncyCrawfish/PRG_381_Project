@@ -30,20 +30,22 @@ public class UserDAOImpl implements UserDAO {
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-            System.out.println("Error adding user.");
+            System.out.println("Error adding user: " + e.getMessage());
+            e.printStackTrace();
+
         }
 
         return false;
     }
 
     @Override
-    public User getUserById(int userId) {
+    public User getUserByUsername(String username) {
 
-        String sql = "SELECT * FROM users WHERE user_id=?";
+        String sql = "SELECT * FROM users WHERE username=?";
 
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
 
-            ps.setInt(1, userId);
+            ps.setString(1, username);
 
             ResultSet rs = ps.executeQuery();
 
@@ -59,7 +61,8 @@ public class UserDAOImpl implements UserDAO {
             }
 
         } catch (SQLException e) {
-                System.out.println("Error adding user: " + e.getMessage());
+                System.out.println("Error finding user: " + e.getMessage());
+            e.printStackTrace();
         }
 
         return null;
@@ -87,7 +90,8 @@ public class UserDAOImpl implements UserDAO {
             }
 
         } catch (SQLException e) {
-                System.out.println("Error adding user: " + e.getMessage());
+                System.out.println("Error getting users: " + e.getMessage());
+            e.printStackTrace();
         }
 
         return users;
@@ -109,7 +113,8 @@ public class UserDAOImpl implements UserDAO {
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-                System.out.println("Error adding user: " + e.getMessage());
+                System.out.println("Error updating user: " + e.getMessage());
+            e.printStackTrace();
         }
 
         return false;
@@ -127,7 +132,8 @@ public class UserDAOImpl implements UserDAO {
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-    System.out.println("Error adding user: " + e.getMessage());        }
+                System.out.println("Error deleting user: " + e.getMessage());
+            e.printStackTrace();        }
 
         return false;
     }

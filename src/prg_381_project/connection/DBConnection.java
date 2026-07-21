@@ -5,10 +5,16 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-
-    private static final String URL = "jdbc:postgresql://localhost:5432/CleaningInventoryDB";
+   //LIAM's CONNECTION
+    
+   // private static final String URL = "jdbc:postgresql://localhost:5432/CleaningInventoryDB";
+   // private static final String USER = "postgres";
+   // private static final String PASSWORD = "Liamdevilliers12*";
+    
+   //REGARDT's CONNECTION
+    private static final String URL = "jdbc:postgresql://localhost:5432/StudentsRegistry";
     private static final String USER = "postgres";
-    private static final String PASSWORD = "Liamdevilliers12*";
+    private static final String PASSWORD = "1234";
 
     public static Connection getConnection() {
         try {
