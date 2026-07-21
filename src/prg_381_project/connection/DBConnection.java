@@ -16,6 +16,10 @@ public class DBConnection {
     private static final String USER = "postgres";
     private static final String PASSWORD = "1234";
 
+    private static final String URL = "jdbc:postgresql://localhost:5433/CleaningInventoryDB";
+    private static final String USER = "postgres";
+    private static final String PASSWORD = "Rochelle03!";
+
     public static Connection getConnection() {
         try {
             return DriverManager.getConnection(URL, USER, PASSWORD);
