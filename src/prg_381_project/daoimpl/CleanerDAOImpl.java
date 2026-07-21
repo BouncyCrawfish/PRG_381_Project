@@ -3,6 +3,7 @@ package prg_381_project.daoimpl;
 import prg_381_project.connection.DBConnection;
 import prg_381_project.dao.CleanerDAO;
 import prg_381_project.model.Cleaner;
+import prg_381_project.Cleaners_Suppliers;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -101,7 +102,8 @@ public class CleanerDAOImpl implements CleanerDAO {
             ps.setString(1, cleaner.getFirstName());
             ps.setString(2, cleaner.getLastName());
             ps.setString(3, cleaner.getDepartment());
-            ps.setInt(4, cleaner.getCleanerId());
+            Cleaners_Suppliers c_s = new Cleaners_Suppliers();
+            ps.setInt(4, cleaner.getCleanerId(Integer.parseInt(c_s.Cleaner_ID.getText().trim())));
 
             return ps.executeUpdate() > 0;
 
