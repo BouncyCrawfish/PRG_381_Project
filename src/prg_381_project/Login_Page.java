@@ -14,6 +14,7 @@ import prg_381_project.model.Cleaner;
 import prg_381_project.daoimpl.CleanerDAOImpl;
 import prg_381_project.model.Supplier;
 import prg_381_project.daoimpl.SupplierDAOImpl;
+import prg_381_project.issuance.IssuancePanel;
 
 
 import javax.swing.SwingWorker;
@@ -71,6 +72,13 @@ public class Login_Page extends javax.swing.JFrame {
         
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        
+        // Person 5 — wire IssuancePanel into the Issuance tab.
+        // Replace the empty generated sub-tabs with a single full-featured panel.
+        Issuance_Tab.removeAll();
+        Issuance_Tab.setLayout(new java.awt.BorderLayout());
+        Issuance_Tab.add(new IssuancePanel(), java.awt.BorderLayout.CENTER);
+        
         HideTabs();
     }
     
@@ -1097,6 +1105,9 @@ public class Login_Page extends javax.swing.JFrame {
             Issuance_Tab_Index.remove(Delete_Issuance_Tab);
             
             Cleaners_Tab_Index.remove(Add_Cleaners_Tab);
+            // Note: Issuance_Tab_Index sub-tab references above are now no-ops
+            // because IssuancePanel replaced the tab content in the constructor.
+            // They are kept to avoid compile errors from the GEN variables block.
             
   
      Tab_Index.remove(Login_Tab);
