@@ -1320,33 +1320,7 @@ public void Show_User_Tabs(){
     pack();
     setLocationRelativeTo(null);
 }
-    public void Show_User_Tabs(){
-     Tab_Index.insertTab("registration", null, Registration_Tab, null, 1);
-     Tab_Index.insertTab("Materials", null, Materials_Tab, null, 2);
-     Tab_Index.insertTab("Issaunce", null, Issuance_Tab, null, 3);
-     Tab_Index.insertTab("Suppliers", null, Suppliers_Tab, null, 4);
-     Tab_Index.insertTab("Cleaners", null, Cleaners_Tab, null, 5);
-     
-     Materials_Tab_Index.remove(Add_Materials_Tab);
-            Materials_Tab_Index.remove(Update_Materials_Tab);
-            Materials_Tab_Index.remove(Delete_Materials_Tab);
-            
-            Suppliers_Tab_Index.remove(Add_Suppliers_Tab);
-            
-            
-            Issuance_Tab_Index.remove(Add_Issuance_Tab);
-            Issuance_Tab_Index.remove(Update_Issuance_Tab);
-            Issuance_Tab_Index.remove(Delete_Issuance_Tab);
-            
-            Cleaners_Tab_Index.remove(Add_Cleaners_Tab);
-            // Note: Issuance_Tab_Index sub-tab references above are now no-ops
-            // because IssuancePanel replaced the tab content in the constructor.
-            // They are kept to avoid compile errors from the GEN variables block.
-            
-  
-     Tab_Index.remove(Login_Tab);
-    
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Add_Cleaners_Tab;
