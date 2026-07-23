@@ -32,20 +32,19 @@ import java.sql.SQLException;
 public class Login_Page extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login_Page.class.getName());
-
+    private javax.swing.JPanel Dashboard_Tab;
     /**
      * Creates new form Login_Page
      */
     public Login_Page() {
         initComponents();
+        Dashboard_Tab = new DashboardPanel();
+        Tab_Index.insertTab("Dashboard", null, Dashboard_Tab, null, 6);
+        
+        
         //Set main index icons
         Tab_Index.setIconAt(0, new ImageIcon(getClass().getResource("/prg_381_project/icons/login.png")));
-        Tab_Index.setIconAt(1, new ImageIcon(getClass().getResource("/prg_381_project/icons/registration.png")));
-        Tab_Index.setIconAt(2, new ImageIcon(getClass().getResource("/prg_381_project/icons/materials.png")));
-        Tab_Index.setIconAt(3, new ImageIcon(getClass().getResource("/prg_381_project/icons/issuance.png")));
-        Tab_Index.setIconAt(4, new ImageIcon(getClass().getResource("/prg_381_project/icons/suppliers.png")));
-        Tab_Index.setIconAt(5, new ImageIcon(getClass().getResource("/prg_381_project/icons/cleaners.png")));
-        Tab_Index.setIconAt(6, new ImageIcon(getClass().getResource("/prg_381_project/icons/logout.png")));
+        Tab_Index.setIconAt(7, new ImageIcon(getClass().getResource("/prg_381_project/icons/logout.png")));
         
         //Set materials index icons
         Materials_Tab_Index.setIconAt(0, new ImageIcon(getClass().getResource("/prg_381_project/icons/add.png")));
@@ -615,7 +614,7 @@ public class Login_Page extends javax.swing.JFrame {
         Logout_Tab.getAccessibleContext().setAccessibleName("Logout_Tab");
         Logout_Tab.getAccessibleContext().setAccessibleDescription("");
 
-        getContentPane().add(Tab_Index, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 0, 830, -1));
+        getContentPane().add(Tab_Index, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1066,42 +1065,43 @@ public class Login_Page extends javax.swing.JFrame {
             Tab_Index.remove(Issuance_Tab);
             Tab_Index.remove(Suppliers_Tab);
             Tab_Index.remove(Cleaners_Tab);
+            Tab_Index.remove(Dashboard_Tab);
 
     }
     
     public void Show_Admin_Tabs(){
-     Tab_Index.insertTab("registration", null, Registration_Tab, null, 1);
-     Tab_Index.insertTab("Materials", null, Materials_Tab, null, 2);
-     Tab_Index.insertTab("Issaunce", null, Issuance_Tab, null, 3);
-     Tab_Index.insertTab("Suppliers", null, Suppliers_Tab, null, 4);
-     Tab_Index.insertTab("Cleaners", null, Cleaners_Tab, null, 5);
-     
-     Tab_Index.remove(Login_Tab);
+    Tab_Index.insertTab("registration", new ImageIcon(getClass().getResource("/prg_381_project/icons/registration.png")), Registration_Tab, null, 1);
+    Tab_Index.insertTab("Materials", new ImageIcon(getClass().getResource("/prg_381_project/icons/materials.png")), Materials_Tab, null, 2);
+    Tab_Index.insertTab("Issaunce", new ImageIcon(getClass().getResource("/prg_381_project/icons/issuance.png")), Issuance_Tab, null, 3);
+    Tab_Index.insertTab("Suppliers", new ImageIcon(getClass().getResource("/prg_381_project/icons/suppliers.png")), Suppliers_Tab, null, 4);
+    Tab_Index.insertTab("Cleaners", new ImageIcon(getClass().getResource("/prg_381_project/icons/cleaners.png")), Cleaners_Tab, null, 5);
+    Tab_Index.insertTab("Dashboard", new ImageIcon(getClass().getResource("/prg_381_project/icons/dashboard.png")), Dashboard_Tab, null, 6);
+
+    Tab_Index.remove(Login_Tab);
 }
-    public void Show_User_Tabs(){
-     Tab_Index.insertTab("registration", null, Registration_Tab, null, 1);
-     Tab_Index.insertTab("Materials", null, Materials_Tab, null, 2);
-     Tab_Index.insertTab("Issaunce", null, Issuance_Tab, null, 3);
-     Tab_Index.insertTab("Suppliers", null, Suppliers_Tab, null, 4);
-     Tab_Index.insertTab("Cleaners", null, Cleaners_Tab, null, 5);
-     
-     Materials_Tab_Index.remove(Add_Materials_Tab);
-            Materials_Tab_Index.remove(Update_Materials_Tab);
-            Materials_Tab_Index.remove(Delete_Materials_Tab);
-            
-            Suppliers_Tab_Index.remove(Add_Suppliers_Tab);
-            
-            
-            Issuance_Tab_Index.remove(Add_Issuance_Tab);
-            Issuance_Tab_Index.remove(Update_Issuance_Tab);
-            Issuance_Tab_Index.remove(Delete_Issuance_Tab);
-            
-            Cleaners_Tab_Index.remove(Add_Cleaners_Tab);
-            
-  
-     Tab_Index.remove(Login_Tab);
-    
-    }
+
+public void Show_User_Tabs(){
+    Tab_Index.insertTab("registration", new ImageIcon(getClass().getResource("/prg_381_project/icons/registration.png")), Registration_Tab, null, 1);
+    Tab_Index.insertTab("Materials", new ImageIcon(getClass().getResource("/prg_381_project/icons/materials.png")), Materials_Tab, null, 2);
+    Tab_Index.insertTab("Issaunce", new ImageIcon(getClass().getResource("/prg_381_project/icons/issuance.png")), Issuance_Tab, null, 3);
+    Tab_Index.insertTab("Suppliers", new ImageIcon(getClass().getResource("/prg_381_project/icons/suppliers.png")), Suppliers_Tab, null, 4);
+    Tab_Index.insertTab("Cleaners", new ImageIcon(getClass().getResource("/prg_381_project/icons/cleaners.png")), Cleaners_Tab, null, 5);
+    Tab_Index.insertTab("Dashboard", new ImageIcon(getClass().getResource("/prg_381_project/icons/dashboard.png")), Dashboard_Tab, null, 6);
+
+    Materials_Tab_Index.remove(Add_Materials_Tab);
+    Materials_Tab_Index.remove(Update_Materials_Tab);
+    Materials_Tab_Index.remove(Delete_Materials_Tab);
+
+    Suppliers_Tab_Index.remove(Add_Suppliers_Tab);
+
+    Issuance_Tab_Index.remove(Add_Issuance_Tab);
+    Issuance_Tab_Index.remove(Update_Issuance_Tab);
+    Issuance_Tab_Index.remove(Delete_Issuance_Tab);
+
+    Cleaners_Tab_Index.remove(Add_Cleaners_Tab);
+
+    Tab_Index.remove(Login_Tab);
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Add_Cleaners_Tab;
