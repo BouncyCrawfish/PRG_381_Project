@@ -33,20 +33,19 @@ import java.sql.SQLException;
 public class Login_Page extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login_Page.class.getName());
-
+    private javax.swing.JPanel Dashboard_Tab;
     /**
      * Creates new form Login_Page
      */
     public Login_Page() {
         initComponents();
+        Dashboard_Tab = new DashboardPanel();
+        Tab_Index.insertTab("Dashboard", null, Dashboard_Tab, null, 6);
+        
+        
         //Set main index icons
         Tab_Index.setIconAt(0, new ImageIcon(getClass().getResource("/prg_381_project/icons/login.png")));
-        Tab_Index.setIconAt(1, new ImageIcon(getClass().getResource("/prg_381_project/icons/registration.png")));
-        Tab_Index.setIconAt(2, new ImageIcon(getClass().getResource("/prg_381_project/icons/materials.png")));
-        Tab_Index.setIconAt(3, new ImageIcon(getClass().getResource("/prg_381_project/icons/issuance.png")));
-        Tab_Index.setIconAt(4, new ImageIcon(getClass().getResource("/prg_381_project/icons/suppliers.png")));
-        Tab_Index.setIconAt(5, new ImageIcon(getClass().getResource("/prg_381_project/icons/cleaners.png")));
-        Tab_Index.setIconAt(6, new ImageIcon(getClass().getResource("/prg_381_project/icons/logout.png")));
+        Tab_Index.setIconAt(7, new ImageIcon(getClass().getResource("/prg_381_project/icons/logout.png")));
         
         //Set materials index icons
         Materials_Tab_Index.setIconAt(0, new ImageIcon(getClass().getResource("/prg_381_project/icons/add.png")));
@@ -80,6 +79,9 @@ public class Login_Page extends javax.swing.JFrame {
         Issuance_Tab.add(new IssuancePanel(), java.awt.BorderLayout.CENTER);
         
         HideTabs();
+        
+        pack();
+        setLocationRelativeTo(null);
     }
     
     
@@ -109,6 +111,9 @@ public class Login_Page extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         Register_Email_Field = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        Btn_Add_User = new javax.swing.JButton();
+        Register_Role_Field = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
         Materials_Tab = new javax.swing.JPanel();
         Materials_Tab_Index = new javax.swing.JTabbedPane();
         Add_Materials_Tab = new javax.swing.JPanel();
@@ -181,82 +186,128 @@ public class Login_Page extends javax.swing.JFrame {
 
         Tab_Index.setBackground(new java.awt.Color(102, 102, 102));
         Tab_Index.setForeground(new java.awt.Color(255, 255, 255));
+        Tab_Index.setMaximumSize(new java.awt.Dimension(490, 430));
+        Tab_Index.setMinimumSize(new java.awt.Dimension(490, 430));
         Tab_Index.setRequestFocusEnabled(false);
 
         Login_Tab.setBackground(new java.awt.Color(51, 51, 51));
         Login_Tab.setForeground(new java.awt.Color(255, 255, 255));
         Login_Tab.setFocusTraversalPolicyProvider(true);
+        Login_Tab.setMaximumSize(new java.awt.Dimension(490, 430));
+        Login_Tab.setPreferredSize(new java.awt.Dimension(490, 430));
         Login_Tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Email or Username");
         Login_Tab.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 100, 190, 20));
 
+        Login_Password_Field.setBackground(new java.awt.Color(102, 102, 102));
         Login_Password_Field.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
+        Login_Password_Field.setForeground(new java.awt.Color(255, 255, 255));
         Login_Password_Field.addActionListener(this::Login_Password_FieldActionPerformed);
-        Login_Tab.add(Login_Password_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 220, 50));
+        Login_Tab.add(Login_Password_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 220, 50));
 
         jLabel2.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password");
         Login_Tab.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 220, -1, -1));
 
+        Btn_Login.setBackground(new java.awt.Color(102, 102, 102));
+        Btn_Login.setForeground(new java.awt.Color(255, 255, 255));
         Btn_Login.setText("Log In");
         Btn_Login.addActionListener(this::Btn_LoginActionPerformed);
-        Login_Tab.add(Btn_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 350, 220, 40));
+        Login_Tab.add(Btn_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 220, 40));
 
         jTextPane1.setEditable(false);
+        jTextPane1.setBackground(new java.awt.Color(102, 102, 102));
         jTextPane1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextPane1.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 24)); // NOI18N
-        jTextPane1.setForeground(new java.awt.Color(153, 153, 153));
+        jTextPane1.setForeground(new java.awt.Color(255, 255, 255));
         jTextPane1.setText("Welcome");
         jScrollPane1.setViewportView(jTextPane1);
 
         Login_Tab.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 125, -1));
 
+        Login_Username_Field.setBackground(new java.awt.Color(102, 102, 102));
         Login_Username_Field.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
+        Login_Username_Field.setForeground(new java.awt.Color(255, 255, 255));
         Login_Tab.add(Login_Username_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 130, 220, 50));
 
         Tab_Index.addTab("Login", Login_Tab);
         Login_Tab.getAccessibleContext().setAccessibleName("Login_Tab");
 
         Registration_Tab.setBackground(new java.awt.Color(51, 51, 51));
+        Registration_Tab.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Registration_Tab.setForeground(new java.awt.Color(255, 255, 255));
+        Registration_Tab.setMaximumSize(new java.awt.Dimension(490, 430));
         Registration_Tab.setName(""); // NOI18N
         Registration_Tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextPane3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTextPane3.setEditable(false);
+        jTextPane3.setBackground(new java.awt.Color(102, 102, 102));
+        jTextPane3.setBorder(null);
         jTextPane3.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 24)); // NOI18N
-        jTextPane3.setForeground(new java.awt.Color(153, 153, 153));
+        jTextPane3.setForeground(new java.awt.Color(255, 255, 255));
         jTextPane3.setText("Add User");
+        jTextPane3.setFocusable(false);
         jScrollPane3.setViewportView(jTextPane3);
 
-        Registration_Tab.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 125, -1));
+        Registration_Tab.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 120, -1));
 
+        Register_Username_Field.setBackground(new java.awt.Color(102, 102, 102));
         Register_Username_Field.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
+        Register_Username_Field.setForeground(new java.awt.Color(255, 255, 255));
         Registration_Tab.add(Register_Username_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 220, 50));
 
         jLabel3.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Username");
         Registration_Tab.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 120, 20));
 
+        Register_Password_Field.setBackground(new java.awt.Color(102, 102, 102));
         Register_Password_Field.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
+        Register_Password_Field.setForeground(new java.awt.Color(255, 255, 255));
         Registration_Tab.add(Register_Password_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 220, 50));
 
         jLabel4.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Password");
         Registration_Tab.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 120, 20));
 
+        Register_Email_Field.setBackground(new java.awt.Color(102, 102, 102));
         Register_Email_Field.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
+        Register_Email_Field.setForeground(new java.awt.Color(255, 255, 255));
         Registration_Tab.add(Register_Email_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 220, 50));
 
         jLabel5.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Email");
         Registration_Tab.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 120, 20));
+
+        Btn_Add_User.setBackground(new java.awt.Color(102, 102, 102));
+        Btn_Add_User.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Add_User.setText("Add User");
+        Btn_Add_User.addActionListener(this::Btn_Add_UserActionPerformed);
+        Registration_Tab.add(Btn_Add_User, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, 220, 40));
+
+        Register_Role_Field.setBackground(new java.awt.Color(102, 102, 102));
+        Register_Role_Field.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
+        Register_Role_Field.setForeground(new java.awt.Color(255, 255, 255));
+        Registration_Tab.add(Register_Role_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 220, 50));
+
+        jLabel15.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Role (Lowercase only)");
+        Registration_Tab.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 220, -1));
 
         Tab_Index.addTab("Registration", Registration_Tab);
         Registration_Tab.getAccessibleContext().setAccessibleName("Registration_Tab");
 
         Materials_Tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Materials_Tab_Index.setBackground(new java.awt.Color(102, 102, 102));
+        Materials_Tab_Index.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout Add_Materials_TabLayout = new javax.swing.GroupLayout(Add_Materials_Tab);
         Add_Materials_Tab.setLayout(Add_Materials_TabLayout);
@@ -266,7 +317,7 @@ public class Login_Page extends javax.swing.JFrame {
         );
         Add_Materials_TabLayout.setVerticalGroup(
             Add_Materials_TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 365, Short.MAX_VALUE)
+            .addGap(0, 575, Short.MAX_VALUE)
         );
 
         Materials_Tab_Index.addTab("Add Materials", Add_Materials_Tab);
@@ -279,7 +330,7 @@ public class Login_Page extends javax.swing.JFrame {
         );
         View_Materials_TabLayout.setVerticalGroup(
             View_Materials_TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 365, Short.MAX_VALUE)
+            .addGap(0, 575, Short.MAX_VALUE)
         );
 
         Materials_Tab_Index.addTab("View Materials", View_Materials_Tab);
@@ -292,7 +343,7 @@ public class Login_Page extends javax.swing.JFrame {
         );
         Update_Materials_TabLayout.setVerticalGroup(
             Update_Materials_TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 365, Short.MAX_VALUE)
+            .addGap(0, 575, Short.MAX_VALUE)
         );
 
         Materials_Tab_Index.addTab("Update Materials", Update_Materials_Tab);
@@ -305,16 +356,19 @@ public class Login_Page extends javax.swing.JFrame {
         );
         Delete_Materials_TabLayout.setVerticalGroup(
             Delete_Materials_TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 365, Short.MAX_VALUE)
+            .addGap(0, 575, Short.MAX_VALUE)
         );
 
         Materials_Tab_Index.addTab("Delete Materials", Delete_Materials_Tab);
 
-        Materials_Tab.add(Materials_Tab_Index, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 400));
+        Materials_Tab.add(Materials_Tab_Index, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 610));
 
         Tab_Index.addTab("Materials", Materials_Tab);
 
         Issuance_Tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Issuance_Tab_Index.setBackground(new java.awt.Color(102, 102, 102));
+        Issuance_Tab_Index.setForeground(new java.awt.Color(255, 255, 255));
 
         Add_Issuance_Tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         Issuance_Tab_Index.addTab("Add Issuance", Add_Issuance_Tab);
@@ -327,7 +381,7 @@ public class Login_Page extends javax.swing.JFrame {
         );
         View_Issuance_TabLayout.setVerticalGroup(
             View_Issuance_TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+            .addGap(0, 575, Short.MAX_VALUE)
         );
 
         Issuance_Tab_Index.addTab("View Issuance", View_Issuance_Tab);
@@ -340,7 +394,7 @@ public class Login_Page extends javax.swing.JFrame {
         );
         Update_Issuance_TabLayout.setVerticalGroup(
             Update_Issuance_TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+            .addGap(0, 575, Short.MAX_VALUE)
         );
 
         Issuance_Tab_Index.addTab("Update Issuance", Update_Issuance_Tab);
@@ -353,16 +407,19 @@ public class Login_Page extends javax.swing.JFrame {
         );
         Delete_Issuance_TabLayout.setVerticalGroup(
             Delete_Issuance_TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+            .addGap(0, 575, Short.MAX_VALUE)
         );
 
         Issuance_Tab_Index.addTab("Delete Issuance", Delete_Issuance_Tab);
 
-        Issuance_Tab.add(Issuance_Tab_Index, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 430));
+        Issuance_Tab.add(Issuance_Tab_Index, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 610));
 
         Tab_Index.addTab("Issuance", Issuance_Tab);
 
         Suppliers_Tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Suppliers_Tab_Index.setBackground(new java.awt.Color(102, 102, 102));
+        Suppliers_Tab_Index.setForeground(new java.awt.Color(255, 255, 255));
 
         Supplier_Tab.setBackground(new java.awt.Color(51, 51, 51));
         Supplier_Tab.setForeground(new java.awt.Color(255, 255, 255));
@@ -389,14 +446,20 @@ public class Login_Page extends javax.swing.JFrame {
         Supplier_Email.setName("SName"); // NOI18N
         Supplier_Tab.add(Supplier_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 220, 20));
 
+        supp_Add.setBackground(new java.awt.Color(102, 102, 102));
+        supp_Add.setForeground(new java.awt.Color(255, 255, 255));
         supp_Add.setText("ADD");
         supp_Add.addActionListener(this::supp_AddActionPerformed);
         Supplier_Tab.add(supp_Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 220, 40));
 
+        supp_Delete.setBackground(new java.awt.Color(102, 102, 102));
+        supp_Delete.setForeground(new java.awt.Color(255, 255, 255));
         supp_Delete.setText("Delete");
         supp_Delete.addActionListener(this::supp_DeleteActionPerformed);
         Supplier_Tab.add(supp_Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 450, 220, 40));
 
+        supp_Update.setBackground(new java.awt.Color(102, 102, 102));
+        supp_Update.setForeground(new java.awt.Color(255, 255, 255));
         supp_Update.setText("Update Info");
         supp_Update.addActionListener(this::supp_UpdateActionPerformed);
         Supplier_Tab.add(supp_Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 450, 220, 40));
@@ -497,6 +560,11 @@ public class Login_Page extends javax.swing.JFrame {
 
         Cleaners_Tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Cleaners_Tab_Index.setBackground(new java.awt.Color(102, 102, 102));
+        Cleaners_Tab_Index.setForeground(new java.awt.Color(255, 255, 255));
+
+        Add_Cleaners_Tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         Cleaner_Tab.setBackground(new java.awt.Color(51, 51, 51));
         Cleaner_Tab.setForeground(new java.awt.Color(255, 255, 255));
         Cleaner_Tab.setFocusTraversalPolicyProvider(true);
@@ -504,13 +572,17 @@ public class Login_Page extends javax.swing.JFrame {
         Cleaner_Tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Cleaner Department");
         Cleaner_Tab.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 200, 20));
 
         jLabel7.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("CleanerID");
         Cleaner_Tab.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
+        cl_Delete.setBackground(new java.awt.Color(102, 102, 102));
+        cl_Delete.setForeground(new java.awt.Color(255, 255, 255));
         cl_Delete.setText("Delete");
         cl_Delete.addActionListener(this::cl_DeleteActionPerformed);
         Cleaner_Tab.add(cl_Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, 220, 40));
@@ -524,18 +596,24 @@ public class Login_Page extends javax.swing.JFrame {
         Cleaner_Tab.add(Cleaner_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 220, 20));
 
         jLabel8.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Cleaner Name");
         Cleaner_Tab.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 200, 20));
 
+        cl_Add.setBackground(new java.awt.Color(102, 102, 102));
+        cl_Add.setForeground(new java.awt.Color(255, 255, 255));
         cl_Add.setText("ADD");
         cl_Add.addActionListener(this::cl_AddActionPerformed);
         Cleaner_Tab.add(cl_Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 220, 40));
 
+        cl_Update.setBackground(new java.awt.Color(102, 102, 102));
+        cl_Update.setForeground(new java.awt.Color(255, 255, 255));
         cl_Update.setText("Update Info");
         cl_Update.addActionListener(this::cl_UpdateActionPerformed);
         Cleaner_Tab.add(cl_Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, 220, 40));
 
         jLabel9.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Cleaner Surname");
         Cleaner_Tab.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 200, 20));
 
@@ -547,26 +625,7 @@ public class Login_Page extends javax.swing.JFrame {
         Cleaner_Name1.setName("SName"); // NOI18N
         Cleaner_Tab.add(Cleaner_Name1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 220, 20));
 
-        javax.swing.GroupLayout Add_Cleaners_TabLayout = new javax.swing.GroupLayout(Add_Cleaners_Tab);
-        Add_Cleaners_Tab.setLayout(Add_Cleaners_TabLayout);
-        Add_Cleaners_TabLayout.setHorizontalGroup(
-            Add_Cleaners_TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 828, Short.MAX_VALUE)
-            .addGroup(Add_Cleaners_TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(Add_Cleaners_TabLayout.createSequentialGroup()
-                    .addGap(0, 35, Short.MAX_VALUE)
-                    .addComponent(Cleaner_Tab, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 35, Short.MAX_VALUE)))
-        );
-        Add_Cleaners_TabLayout.setVerticalGroup(
-            Add_Cleaners_TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 656, Short.MAX_VALUE)
-            .addGroup(Add_Cleaners_TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(Add_Cleaners_TabLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(Cleaner_Tab, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        Add_Cleaners_Tab.add(Cleaner_Tab, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, -4, 830, 580));
 
         Cleaners_Tab_Index.addTab("Add Cleaners", Add_Cleaners_Tab);
 
@@ -600,30 +659,47 @@ public class Login_Page extends javax.swing.JFrame {
             View_Cleaners_TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(View_Cleaners_TabLayout.createSequentialGroup()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 229, Short.MAX_VALUE))
+                .addGap(0, 148, Short.MAX_VALUE))
         );
 
         Cleaners_Tab_Index.addTab("View Cleaners", View_Cleaners_Tab);
 
-        Cleaners_Tab.add(Cleaners_Tab_Index, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        Cleaners_Tab.add(Cleaners_Tab_Index, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 610));
         Cleaners_Tab_Index.getAccessibleContext().setAccessibleName("");
 
         Tab_Index.addTab("Cleaners", Cleaners_Tab);
 
         Logout_Tab.setBackground(new java.awt.Color(51, 51, 51));
         Logout_Tab.setForeground(new java.awt.Color(255, 255, 255));
-        Logout_Tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Btn_Logout.setBackground(new java.awt.Color(102, 102, 102));
         Btn_Logout.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
+        Btn_Logout.setForeground(new java.awt.Color(255, 255, 255));
         Btn_Logout.setText("Log Out");
         Btn_Logout.addActionListener(this::Btn_LogoutActionPerformed);
-        Logout_Tab.add(Btn_Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 190, 100));
+
+        javax.swing.GroupLayout Logout_TabLayout = new javax.swing.GroupLayout(Logout_Tab);
+        Logout_Tab.setLayout(Logout_TabLayout);
+        Logout_TabLayout.setHorizontalGroup(
+            Logout_TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Logout_TabLayout.createSequentialGroup()
+                .addContainerGap(313, Short.MAX_VALUE)
+                .addComponent(Btn_Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(317, 317, 317))
+        );
+        Logout_TabLayout.setVerticalGroup(
+            Logout_TabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Logout_TabLayout.createSequentialGroup()
+                .addContainerGap(247, Short.MAX_VALUE)
+                .addComponent(Btn_Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(258, 258, 258))
+        );
 
         Tab_Index.addTab("Logout", Logout_Tab);
         Logout_Tab.getAccessibleContext().setAccessibleName("Logout_Tab");
         Logout_Tab.getAccessibleContext().setAccessibleDescription("");
 
-        getContentPane().add(Tab_Index, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 0, 830, -1));
+        getContentPane().add(Tab_Index, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -640,6 +716,7 @@ public class Login_Page extends javax.swing.JFrame {
        
         
         if(!Username.isEmpty()|| !Password.isEmpty()){
+            
             Access_Control(Username, Password);
                
         }
@@ -909,6 +986,45 @@ public class Login_Page extends javax.swing.JFrame {
         // TODO add your handling code here:
         loadSupplierTableData();
     }//GEN-LAST:event_jTable1ComponentShown
+
+    private void Btn_Add_UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Add_UserActionPerformed
+        String Username = Register_Username_Field.getText();
+        String Password = Register_Password_Field.getText();
+        String Role = Register_Role_Field.getText();
+        String Email = Register_Email_Field.getText();
+        
+        if(!Username.isEmpty()|| !Password.isEmpty()|| !Email.isEmpty()||Role.isEmpty()){
+            
+            if (Input_validation(Username, Password,Email,Role)){
+            UserDAO userDAO = new UserDAOImpl();
+            User user = new User(0,Username, Password,Email,Role);
+            
+                try {
+                    userDAO.addUser(user);
+                    jOptionPane1.showMessageDialog(this,
+                                           "Added "+Username,
+                                           "Login Success",
+                                           jOptionPane1.INFORMATION_MESSAGE);
+                    
+                } catch (Exception e) {
+                  jOptionPane1.showMessageDialog(this,
+                                           "Error",
+                                           e.getMessage(),
+                                           jOptionPane1.ERROR_MESSAGE);  
+                }
+        }
+            
+               
+        }
+        else{
+            jOptionPane1.showMessageDialog(this,
+                                           "Please enter a value in all fields",
+                                           "Error",
+                                           jOptionPane1.ERROR_MESSAGE);
+        }
+        
+        
+    }//GEN-LAST:event_Btn_Add_UserActionPerformed
    
     private void loadSupplierTableData() {
     
@@ -1024,28 +1140,30 @@ public class Login_Page extends javax.swing.JFrame {
             User user = userDAO.getUserByUsername(Username);
             
             if(Password.equals(user.getPassword())){
+                
+                
+                switch (user.getRole()){
+                case "admin":
                 jOptionPane1.showMessageDialog(this,
                                            "Logged in as "+Username,
                                            "Login Success",
-                                           jOptionPane1.INFORMATION_MESSAGE);
-            }
-            else{
-                jOptionPane1.showMessageDialog(this,
-                                           "Username or Password Incorrect",
-                                           "Error",
-                                           jOptionPane1.ERROR_MESSAGE);
-            }
-            
-            switch (user.getRole()){
-                case "admin":
+                                           jOptionPane1.INFORMATION_MESSAGE);    
                 Show_Admin_Tabs();
                 break;
                 
                 case "supervisor":
+                jOptionPane1.showMessageDialog(this,
+                                           "Logged in as "+Username,
+                                           "Login Success",
+                                           jOptionPane1.INFORMATION_MESSAGE);
                 Show_Admin_Tabs();
                 break;
                 
                 case "staff":
+                jOptionPane1.showMessageDialog(this,
+                                           "Logged in as "+Username,
+                                           "Login Success",
+                                           jOptionPane1.INFORMATION_MESSAGE);  
                 Show_User_Tabs();
                 break;
                 
@@ -1056,7 +1174,17 @@ public class Login_Page extends javax.swing.JFrame {
                                            jOptionPane1.ERROR_MESSAGE);
                 break; 
                 
-            }    
+            }
+                
+            }
+            else{
+                jOptionPane1.showMessageDialog(this,
+                                           "Username or Password Incorrect",
+                                           "Error",
+                                           jOptionPane1.ERROR_MESSAGE);
+            }
+            
+               
             
    
          
@@ -1068,23 +1196,129 @@ public class Login_Page extends javax.swing.JFrame {
         }
         
     }
+    
+    public boolean Input_validation(String Username, String Password, String Email, String Role){
+        //Validate Password
+        if (Password.length()< 8){
+            jOptionPane1.showMessageDialog(this,
+                                           "Password must contain at least 8 characters",
+                                           "Error",
+                                           jOptionPane1.ERROR_MESSAGE);  
+            return false;
+        }
+    
+        if (!Password.matches(".*[A-Z].*")) {
+            jOptionPane1.showMessageDialog(this,
+                                           "Password must contain at least one uppercase letter.",
+                                           "Error",
+                                           jOptionPane1.ERROR_MESSAGE);
+            return false;
+        }
+    
+        if (!Password.matches(".*[a-z].*")) {
+            jOptionPane1.showMessageDialog(this,
+                                           "Password must contain at least one lowercase letter.",
+                                           "Error",
+                                           jOptionPane1.ERROR_MESSAGE);
+            return false;   
+        }
+        
+        
+        if (!Password.matches(".*\\d.*")) {
+            jOptionPane1.showMessageDialog(this,
+                                           "Password must contain at least one digit.",
+                                           "Error",
+                                              jOptionPane1.ERROR_MESSAGE);
+            return false;
+        }
+        
+        if (!Password.matches(".*[@#$%^&+=!].*")) {
+            jOptionPane1.showMessageDialog(this,
+                                           "Password must contain at least one special character.",
+                                           "Error",
+                                           jOptionPane1.ERROR_MESSAGE);
+            return false;
+        }
+        //Validate Username
+        if (Username.isEmpty()||Username.isBlank()){
+            jOptionPane1.showMessageDialog(this,
+                                           "Please enter a username",
+                                           "Error",
+                                           jOptionPane1.ERROR_MESSAGE);  
+            return false;
+        }
+        //Validate Email
+        if (!Email.matches(".*[@].*")) {
+            jOptionPane1.showMessageDialog(this,
+                                           "Email must contain @ symbol.",
+                                           "Error",
+                                           jOptionPane1.ERROR_MESSAGE);
+            return false;   
+        }
+        
+        //
+        if (Role.equalsFoldCase("admin")||Role.equalsFoldCase("staff")||Role.equalsFoldCase("supervisor"))
+        {
+            return true;
+        }
+        else{
+            
+            jOptionPane1.showMessageDialog(this,
+                                           "Unkown Role",
+                                           "Error",
+                                           jOptionPane1.ERROR_MESSAGE);
+            return false;
+        }
+    }
+    
+    
+    
     public void HideTabs(){
             Tab_Index.remove(Registration_Tab);
             Tab_Index.remove(Materials_Tab);
             Tab_Index.remove(Issuance_Tab);
             Tab_Index.remove(Suppliers_Tab);
             Tab_Index.remove(Cleaners_Tab);
+            Tab_Index.remove(Dashboard_Tab);
 
     }
     
     public void Show_Admin_Tabs(){
-     Tab_Index.insertTab("registration", null, Registration_Tab, null, 1);
-     Tab_Index.insertTab("Materials", null, Materials_Tab, null, 2);
-     Tab_Index.insertTab("Issaunce", null, Issuance_Tab, null, 3);
-     Tab_Index.insertTab("Suppliers", null, Suppliers_Tab, null, 4);
-     Tab_Index.insertTab("Cleaners", null, Cleaners_Tab, null, 5);
-     
-     Tab_Index.remove(Login_Tab);
+    Tab_Index.insertTab("registration", new ImageIcon(getClass().getResource("/prg_381_project/icons/registration.png")), Registration_Tab, null, 1);
+    Tab_Index.insertTab("Materials", new ImageIcon(getClass().getResource("/prg_381_project/icons/materials.png")), Materials_Tab, null, 2);
+    Tab_Index.insertTab("Issaunce", new ImageIcon(getClass().getResource("/prg_381_project/icons/issuance.png")), Issuance_Tab, null, 3);
+    Tab_Index.insertTab("Suppliers", new ImageIcon(getClass().getResource("/prg_381_project/icons/suppliers.png")), Suppliers_Tab, null, 4);
+    Tab_Index.insertTab("Cleaners", new ImageIcon(getClass().getResource("/prg_381_project/icons/cleaners.png")), Cleaners_Tab, null, 5);
+    Tab_Index.insertTab("Dashboard", new ImageIcon(getClass().getResource("/prg_381_project/icons/dashboard.png")), Dashboard_Tab, null, 6);
+
+    Tab_Index.remove(Login_Tab);
+    pack();
+    setLocationRelativeTo(null);
+}
+
+public void Show_User_Tabs(){
+    Tab_Index.insertTab("registration", new ImageIcon(getClass().getResource("/prg_381_project/icons/registration.png")), Registration_Tab, null, 1);
+    Tab_Index.insertTab("Materials", new ImageIcon(getClass().getResource("/prg_381_project/icons/materials.png")), Materials_Tab, null, 2);
+    Tab_Index.insertTab("Issaunce", new ImageIcon(getClass().getResource("/prg_381_project/icons/issuance.png")), Issuance_Tab, null, 3);
+    Tab_Index.insertTab("Suppliers", new ImageIcon(getClass().getResource("/prg_381_project/icons/suppliers.png")), Suppliers_Tab, null, 4);
+    Tab_Index.insertTab("Cleaners", new ImageIcon(getClass().getResource("/prg_381_project/icons/cleaners.png")), Cleaners_Tab, null, 5);
+    Tab_Index.insertTab("Dashboard", new ImageIcon(getClass().getResource("/prg_381_project/icons/dashboard.png")), Dashboard_Tab, null, 6);
+
+    Materials_Tab_Index.remove(Add_Materials_Tab);
+    Materials_Tab_Index.remove(Update_Materials_Tab);
+    Materials_Tab_Index.remove(Delete_Materials_Tab);
+
+    Suppliers_Tab_Index.remove(Add_Suppliers_Tab);
+
+    Issuance_Tab_Index.remove(Add_Issuance_Tab);
+    Issuance_Tab_Index.remove(Update_Issuance_Tab);
+    Issuance_Tab_Index.remove(Delete_Issuance_Tab);
+
+    Cleaners_Tab_Index.remove(Add_Cleaners_Tab);
+
+    Tab_Index.remove(Login_Tab);
+    pack();
+    setLocationRelativeTo(null);
 }
     public void Show_User_Tabs(){
      Tab_Index.insertTab("registration", null, Registration_Tab, null, 1);
@@ -1119,6 +1353,7 @@ public class Login_Page extends javax.swing.JFrame {
     private javax.swing.JPanel Add_Issuance_Tab;
     private javax.swing.JPanel Add_Materials_Tab;
     private javax.swing.JPanel Add_Suppliers_Tab;
+    private javax.swing.JButton Btn_Add_User;
     private javax.swing.JButton Btn_Login;
     private javax.swing.JButton Btn_Logout;
     private javax.swing.JTextField Cleaner_Department;
@@ -1140,6 +1375,7 @@ public class Login_Page extends javax.swing.JFrame {
     private javax.swing.JTabbedPane Materials_Tab_Index;
     private javax.swing.JTextField Register_Email_Field;
     private javax.swing.JTextField Register_Password_Field;
+    private javax.swing.JTextField Register_Role_Field;
     private javax.swing.JTextField Register_Username_Field;
     private javax.swing.JPanel Registration_Tab;
     private javax.swing.JTextField Supplier_Address;
@@ -1167,6 +1403,7 @@ public class Login_Page extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
