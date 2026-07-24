@@ -1303,12 +1303,11 @@ public class Login_Page extends javax.swing.JFrame {
 }
 
 public void Show_User_Tabs(){
-    Tab_Index.insertTab("registration", new ImageIcon(getClass().getResource("/prg_381_project/icons/registration.png")), Registration_Tab, null, 1);
-    Tab_Index.insertTab("Materials", new ImageIcon(getClass().getResource("/prg_381_project/icons/materials.png")), Materials_Tab, null, 2);
-    Tab_Index.insertTab("Issaunce", new ImageIcon(getClass().getResource("/prg_381_project/icons/issuance.png")), Issuance_Tab, null, 3);
-    Tab_Index.insertTab("Suppliers", new ImageIcon(getClass().getResource("/prg_381_project/icons/suppliers.png")), Suppliers_Tab, null, 4);
-    Tab_Index.insertTab("Cleaners", new ImageIcon(getClass().getResource("/prg_381_project/icons/cleaners.png")), Cleaners_Tab, null, 5);
-    Tab_Index.insertTab("Dashboard", new ImageIcon(getClass().getResource("/prg_381_project/icons/dashboard.png")), Dashboard_Tab, null, 6);
+    Tab_Index.insertTab("Materials", new ImageIcon(getClass().getResource("/prg_381_project/icons/materials.png")), Materials_Tab, null, 1);
+    Tab_Index.insertTab("Issaunce", new ImageIcon(getClass().getResource("/prg_381_project/icons/issuance.png")), Issuance_Tab, null, 2);
+    Tab_Index.insertTab("Suppliers", new ImageIcon(getClass().getResource("/prg_381_project/icons/suppliers.png")), Suppliers_Tab, null, 3);
+    Tab_Index.insertTab("Cleaners", new ImageIcon(getClass().getResource("/prg_381_project/icons/cleaners.png")), Cleaners_Tab, null, 4);
+    Tab_Index.insertTab("Dashboard", new ImageIcon(getClass().getResource("/prg_381_project/icons/dashboard.png")), Dashboard_Tab, null, 5);
 
     Materials_Tab_Index.remove(Add_Materials_Tab);
     Materials_Tab_Index.remove(Update_Materials_Tab);
