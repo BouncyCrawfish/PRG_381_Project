@@ -16,7 +16,7 @@ import prg_381_project.model.Supplier;
 import prg_381_project.daoimpl.SupplierDAOImpl;
 import prg_381_project.issuance.IssuancePanel;
 
-
+import prg_381_project.materials.MaterialsPanel;
 import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,6 +34,7 @@ public class Login_Page extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login_Page.class.getName());
     private javax.swing.JPanel Dashboard_Tab;
+    
     /**
      * Creates new form Login_Page
      */
@@ -77,6 +78,11 @@ public class Login_Page extends javax.swing.JFrame {
         Issuance_Tab.removeAll();
         Issuance_Tab.setLayout(new java.awt.BorderLayout());
         Issuance_Tab.add(new IssuancePanel(), java.awt.BorderLayout.CENTER);
+        
+        // Wire MaterialsPanel into the Materials tab.
+        Materials_Tab.removeAll();
+        Materials_Tab.setLayout(new java.awt.BorderLayout());
+        Materials_Tab.add(new MaterialsPanel(), java.awt.BorderLayout.CENTER);
         
         HideTabs();
         
